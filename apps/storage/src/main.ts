@@ -4,6 +4,6 @@ import { StorageModule } from './storage.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(StorageModule);
-  await app.listen(3001);
+  await app.listen(process.env.STORAGE_PORT);
 }
 bootstrap();

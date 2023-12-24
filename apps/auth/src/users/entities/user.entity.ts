@@ -4,12 +4,6 @@ import UserRole from '../enums/user.role.enum';
 
 @Entity('users')
 export class User extends CommonEntity {
-  @Column({ name: 'firstName', type: 'varchar', nullable: false })
-  firstName: string;
-
-  @Column({ name: 'lastName', type: 'varchar', nullable: false })
-  lastName: string;
-
   @Column({ name: 'email', type: 'varchar', nullable: false, unique: true })
   email: string;
 

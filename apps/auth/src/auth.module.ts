@@ -8,7 +8,7 @@ import { User } from './users/entities/user.entity';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.env.auth',
+      envFilePath: '.env',
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],

@@ -15,11 +15,16 @@ export class UsersService {
   }
   private readonly repository: Repository<User>;
 
-  create(data: Omit<User, keyof CommonEntity>) {
-    return this.repository.save(data);
+  async create(data: Omit<User, keyof CommonEntity>) {
+    const created = await this.repository.save(data);
+    return created;
   }
 
   findById(data: Pick<User, 'id'>) {
+    return this.repository.findOneBy(data);
+  }
+
+  findByEmail(data: Pick<User, 'email'>) {
     return this.repository.findOneBy(data);
   }
 }

@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+import * as bcrypt from 'bcrypt';
 import { User } from '../../users/entities/user.entity';
 
 async function generateHash(

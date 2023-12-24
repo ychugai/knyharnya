@@ -10,7 +10,7 @@ import { Item } from './entities/item.entity';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.env.storage',
+      envFilePath: '.env',
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],

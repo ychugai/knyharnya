@@ -10,7 +10,7 @@ import { SubOrder } from './entities/subOrder.entity';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.env.orders',
+      envFilePath: '.env',
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
