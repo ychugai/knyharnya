@@ -6,6 +6,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Order } from './entities/order.entity';
 import { SubOrder } from './entities/subOrder.entity';
+import { ClientsModule, Transport } from '@nestjs/microservices';
 
 @Module({
   imports: [
@@ -28,6 +29,16 @@ import { SubOrder } from './entities/subOrder.entity';
       },
       inject: [ConfigService],
     }),
+    ClientsModule.register([
+      {
+        name: 'STORAGE_SERVICE',
+        transport: Transport.TCP,
+        options: {
+          host: process.env.STORAGE_HOST,
+          port: Number(process.env.STORAGE_PORT),
+        },
+      },
+    ]),
   ],
   controllers: [OrdersController],
   providers: [OrdersService],

@@ -5,4 +5,5 @@ export class AddItemBodyDto extends PickType(ItemDto, [
   'name',
   'description',
   'quantity',
+  'price',
 ] as const) {}

@@ -3,7 +3,7 @@ import { InjectDataSource } from '@nestjs/typeorm';
 
 import { Item } from './entities/item.entity';
 import { CommonEntity } from './entities/common.entity';
-import { DataSource, Repository } from 'typeorm';
+import { DataSource, MoreThan, Raw, Repository } from 'typeorm';
 
 @Injectable()
 export class StorageService {
@@ -21,6 +21,13 @@ export class StorageService {
 
   increaseQuantity(id: string, quantity: number) {
     return this.repository.increment({ id }, 'quantity', quantity);
+  }
+
+  findAll() {
+    return this.repository.find({
+      order: { createdAt: 'DESC' },
+      where: { quantity: MoreThan(0) },
+    });
   }
 
   decreaseQuantity(id: string, quantity: number) {

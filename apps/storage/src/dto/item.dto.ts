@@ -31,6 +31,11 @@ export class ItemDto implements Item {
   @IsNumber()
   quantity: number;
 
+  @ApiProperty({ description: 'The price of the item.' })
+  @IsNotEmpty()
+  @IsNumber()
+  price: number;
+
   @ApiProperty({ description: 'The date and time when the item was created.' })
   @IsNotEmpty()
   @IsDateString()
